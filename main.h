@@ -1,5 +1,5 @@
 
-void start_code(void);     //게임이 종료,시작 되었을때 어떤 게임을 실행할지 정하기 위한 함수(
+void start_code(void);     //게임이 종료,시작 되었을때 어떤 게임을 실행할지 정하기 위한 함수
 void setLed(byte value);   //원하는 led 켜기
 void begin_melody1(void);  //터치게임게임 시작음
 void begin_melody2(void);  //기억력게임 시작음
@@ -136,8 +136,18 @@ void end_play(unsigned int note){
 
 
 void dataread(){
+    //8개의 버튼정보를 8비트에 넣기 위해 사용되는 함수
     PCF8575::DigitalInput di = pcf.digitalReadAll();
     //char btn_data[] = {di.p8,di.p9,di.p10,di.p11,di.p12,di.p13,di.p14,di.p15}; 
+
+    // b7   b6   b5   b4  b3   b2   b1   b0
+    //  1   1     1    1   1   1    1    (0) di.p8
+    //                              (0)di.p9
+    //
+    //                         (0)do.10
+    // (0) do.p15
+
+    
     data = ~(di.p8 | di.p9<<1 | di.p10<<2 | di.p11<<3 | di.p12<<4 | di.p13<<5 | di.p14<<6 | di.p15<<7);//0~255    
 }
 

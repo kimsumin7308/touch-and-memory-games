@@ -3,7 +3,7 @@ void messegePrint(void);        //기억력게임 serial.print
 void keyRead(int level);        //맞추었는지 틀렸는지 확인하는 함수
 void dataread_me(void);         //버튼이 툴리면 그에 해당하는 led켜기
 void random_led_on_me(int levelcnt);        //랜덤하게 led 켜기
-void level_up(void);                    //굿카운트가 4 이상이면 level을 올리고 굿카운트를 0으로 초기화, 굿 카운트가 0보다 작으면 level,score을 1씩 깎고 굿카운트 초기화
+void level_up(void);                    //굿카운트가 업카운트 이상이면 level을 올리고 굿카운트를 0으로 초기화, 굿 카운트가 0보다 작으면 level을 1씩 깎고 굿카운트 초기화
 void check_life(void);                  //생명이 0이되면 메모리 게임을 종료하기 start_code실행
 
 void messegePrint(void){
